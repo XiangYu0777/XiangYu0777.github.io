@@ -1,7 +1,7 @@
 # Basic
-title: 向余
-subtitle: Tristana
-description: Stay hungry, stay foolish
+title: 向余的博客
+subtitle: tristana's blog
+description: Stay hungry, stay foolish!
 # 头像里面的标题
 avatarTitle: tristana
 # 头像里面的描述
@@ -9,28 +9,26 @@ avatarDesc: 编程·运动·读书
 url: "http://xiangyu0777.github.io"
 
 # Comment
-comment:
+#comment:
     # disqus: leopard
-    duoshuo: tristana
+    # duoshuo: tristana
 
 # Social
 social:
-    # weibo:
+    weibo: 520tristana
+    twitter: tristana1004
     github: xiangyu0777
-    # twitter:
     mail: 520tristana@gmail.com
 
 # 百度统计
 # 使用博客模板请去掉或者更换 id
 # baidu:
     # id: 15c4fed56d4cae267af95752c20fa16e
-
 # Google Analytics
 # 使用博客模板请去掉或者更换 id
-# ga:
-    # id: UA-87578654-1
-    # host: auto
-
+ga:
+    id: UA-118568912-1
+    host: auto
 
 # ----------------- 上面的信息修改成你自己的 ---------------------------
 #
@@ -39,12 +37,13 @@ social:
 #  目录结构具体参考文档：http://jekyll.com.cn/docs/structure/
 #
 # --------------- 下面的信息可以自行选择是否修改 ------------------------
-
-
 permalink: /:year/:month/:title/
+
 # Format
 markdown: kramdown
 highlighter: rouge
+# markdown: redcarpet
+#highlighter: pygments
 
 # supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
 cover_color: clear #背景Mask
@@ -59,10 +58,9 @@ nav:
     - {title: 标签, description: tags, url: '/tags'}
     - {title: 关于, description: about, url: '/about'}
 
+# Plugins
+plugins: [jekyll-paginate,jekyll-sitemap,jekyll-admin]
 
 # Pagination
-plugins: [jekyll-paginate,jekyll-sitemap]
 paginate: 20
 paginate_path: "page/:num/"
-
-
