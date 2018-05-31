@@ -134,23 +134,21 @@ h4 {
   font-size: 1.2em;
   padding: 6px 15px;
 }
-
 h5 {
-  font-size: 1em; }
-
+  font-size: 1em;
+}
 p {
   margin-bottom: 10px;
   margin-top: 5px;
   line-height: 1.7em;
-  /*padding-left: 20px;*/
+  padding-left: 20px;
 }
-
 strong {
-  font-weight: bold; }
-
+  font-weight: bold;
+}
 em {
-  font-style: italic; }
-
+  font-style: italic;
+}
 blockquote {
   padding-top: 0px;
   padding-bottom: 0px;
@@ -317,8 +315,8 @@ img::-moz-selection {
     margin: 0;
     font-size: .9em;
     background-color: #FAFAFA;
-    text-indent: 10px;
     color: #4F4F4F;
+      padding: 10px;
   }
 
   .intro {
@@ -772,9 +770,13 @@ img::-moz-selection {
     text-align: left;
     display: inline-block;
   }
+.post-list__meta {
+    padding: 8px;
+}
   .post-list li {
     margin: 0 0 2.2em 0;
     float: left;
+      width: 100%;
 
     -moz-box-shadow:4px 4px 4px #efefef,
     -4px -4px 4px #efefef,
