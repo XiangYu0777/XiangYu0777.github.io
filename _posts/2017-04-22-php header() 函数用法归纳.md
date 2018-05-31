@@ -2,7 +2,7 @@
 layout: post
 title: PHP 函数 header() 的用法归纳
 date: 2017-04-22 22:26 +0800
-tags: [PHP, 函数, 编程语言, 技术]
+tags: [PHP]
 ---
 
 + 301 永久重定向 
