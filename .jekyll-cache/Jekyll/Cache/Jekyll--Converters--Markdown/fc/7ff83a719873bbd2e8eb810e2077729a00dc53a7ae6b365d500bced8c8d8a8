@@ -1,0 +1,16 @@
+I"i<h3 id="start-删除软件包">Start 删除软件包</h3>
+<ol>
+  <li>卸载 Apache2
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>apt-get <span class="nt">--purge</span> remove apache2<span class="k">*</span>
+ <span class="nb">sudo </span>apt-get autoremove apache2
+ <span class="o">(</span><span class="nt">--purge</span> 是完全删除并且不保留配置文件）
+ <span class="c"># (重新安装 sudo apt-get install apache2)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>卸载 Nginx
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>apt-get remove nginx-<span class="k">*</span>
+ <span class="nb">sudo </span>apt-get purge nginx-<span class="k">*</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+:ET

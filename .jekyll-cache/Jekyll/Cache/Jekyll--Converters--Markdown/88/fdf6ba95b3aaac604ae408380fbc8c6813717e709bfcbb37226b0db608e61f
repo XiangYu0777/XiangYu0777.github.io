@@ -1,0 +1,31 @@
+I"|<h3 id="start-删除软件包">Start 删除软件包</h3>
+<ol>
+  <li>卸载 Apache2
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>apt-get <span class="nt">--purge</span> remove apache2<span class="k">*</span>
+ <span class="nb">sudo </span>apt-get autoremove apache2
+ <span class="o">(</span><span class="nt">--purge</span> 是完全删除并且不保留配置文件）
+ <span class="c"># (重新安装 sudo apt-get install apache2)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>卸载 Nginx
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>apt-get remove nginx-<span class="k">*</span>
+ <span class="nb">sudo </span>apt-get purge nginx-<span class="k">*</span>
+</code></pre></div>    </div>
+  </li>
+  <li>卸载 php7.0-fpm 或者 php5
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>apt-get <span class="nt">--purge</span> remove php7.0<span class="k">*</span>
+ <span class="o">(</span>或者 <span class="nb">sudo </span>apt-get <span class="nt">--purge</span> remove php5<span class="k">*</span> libapache2-mod-php5<span class="o">)</span>
+ <span class="nb">sudo </span>apt-get autoremove php7.0<span class="k">*</span><span class="o">(</span>php5<span class="o">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>卸载 MySQL
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>apt-get <span class="nt">--purge</span> remove mysql<span class="k">*</span>
+ <span class="nb">sudo </span>apt-get autoremove mysql<span class="k">*</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="end-清理残留文件">End 清理残留文件</h3>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    dpkg <span class="nt">-l</span> |grep ^rc|awk ’<span class="o">{</span>print <span class="nv">$2</span><span class="o">}</span>’ |sudo xargs dpkg <span class="nt">-P</span>
+</code></pre></div></div>
+:ET

@@ -3,3 +3,5 @@ gem 'jekyll'
 gem 'redcarpet'
 gem 'jekyll-paginate'
 gem 'jekyll-sitemap'
+
+gem "jekyll-admin", "~> 0.9.0"

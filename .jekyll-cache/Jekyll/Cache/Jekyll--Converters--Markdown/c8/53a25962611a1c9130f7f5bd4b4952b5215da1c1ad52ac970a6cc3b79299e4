@@ -1,0 +1,110 @@
+I"�#<ul>
+  <li>301 永久重定向
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cp">&lt;?php</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'HTTP/1.1 301 Moved Permanently'</span><span class="p">);</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Location: http://www.example.com'</span><span class="p">);</span>
+  <span class="k">exit</span><span class="p">();</span>
+  <span class="cp">?&gt;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>302 临时重定向
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cp">&lt;?php</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Location: http://www.example.com'</span><span class="p">);</span>
+  <span class="k">exit</span><span class="p">();</span>
+  <span class="cp">?&gt;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>404 页面未找到
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cp">&lt;?php</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'HTTP/1.1 404 Not Found'</span><span class="p">);</span>
+  <span class="cp">?&gt;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>503 服务不可用
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cp">&lt;?php</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'HTTP/1.1 503 Service Temporarily Unavailable'</span><span class="p">);</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Status: 503 Service Temporarily Unavailable'</span><span class="p">);</span>
+  <span class="k">exit</span><span class="p">();</span>
+  <span class="cp">?&gt;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>设置内容类型
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cp">&lt;?php</span>
+  <span class="c1">// html </span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Content-Type: text/html; charset=iso-8859-1'</span><span class="p">);</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Content-Type: text/html; charset=utf-8'</span><span class="p">);</span>
+
+  <span class="c1">// plain text </span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Content-Type: text/plain'</span><span class="p">);</span> <span class="c1">//纯文本格式</span>
+
+  <span class="c1">// css header</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Content-Type: text/css'</span><span class="p">);</span> 
+    
+  <span class="c1">// javascript header </span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Content-Type: application/javascript'</span><span class="p">);</span>
+
+  <span class="c1">// images header</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Content-Type: image/jpeg'</span><span class="p">);</span> <span class="c1">//JPG图片</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Content-Type: images/png'</span><span class="p">);</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Content-Type: images/bmp'</span><span class="p">);</span>
+
+  <span class="c1">// 所有图片类型</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Content-Type: images/*'</span><span class="p">);</span> 
+
+  <span class="c1">// zip 文件</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Content-Type: application/zip'</span><span class="p">);</span> <span class="c1">// ZIP文件</span>
+
+  <span class="c1">// PDF 文件</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Content-Type: application/pdf'</span><span class="p">);</span> <span class="c1">// PDF文件</span>
+
+  <span class="c1">// 音频文件</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Content-Type: audio/mpeg'</span><span class="p">);</span> <span class="c1">// 音频文件</span>
+
+  <span class="c1">// flash 动画</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Content-Type: application/x-shockwave-flash'</span><span class="p">);</span> <span class="c1">//Flash动画</span>
+  <span class="cp">?&gt;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>缓存（cache）(force browsers not to cache files)
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cp">&lt;?php</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Expires: Sat, 26 Jul 1997 05:00:00 GMT'</span><span class="p">);</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Cache-Control: not-store, no-cache, must-revalidate'</span><span class="p">);</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Cache-Control: pre-check=0, post-check=0, max-age=0'</span><span class="p">);</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Pragma: no-cache'</span><span class="p">);</span> <span class="c1">// For IE Browsers</span>
+  <span class="cp">?&gt;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>文件下载
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cp">&lt;?php</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Content-Disposition: attachment;filename='</span> <span class="o">.</span> <span class="nb">urlencode</span><span class="p">(</span><span class="nv">$f</span><span class="p">));</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Content-Type: application/force-download'</span><span class="p">);</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Content-Type: application/octet-stream'</span><span class="p">);</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Content-Type: application/download'</span><span class="p">);</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Content-Description: File Transfer'</span><span class="p">);</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Content-Length: '</span><span class="o">.</span> <span class="nb">filesize</span><span class="p">(</span><span class="nv">$f</span><span class="p">)</span><span class="err">'</span><span class="p">);</span>
+  <span class="k">echo</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="nv">$f</span><span class="p">);</span>
+  <span class="cp">?&gt;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>权限认证 （force the browsers to pop up a Username/Password input window) - only available when PHP is runnig as an Apache module:
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cp">&lt;?php</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'PHP_AUTH_USER'</span><span class="p">]))</span> <span class="p">{</span>
+      <span class="nb">header</span><span class="p">(</span><span class="s1">'WWW-Authenticate: Basic realm="The Realm"'</span><span class="p">);</span>
+      <span class="nb">header</span><span class="p">(</span><span class="s1">'HTTP/1.0 401 Unauthorized'</span><span class="p">);</span>
+      <span class="k">echo</span> <span class="s1">'If cancel is pressed this text shows'</span><span class="p">;</span>
+      <span class="k">exit</span><span class="p">();</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nv">$user</span><span class="o">=</span><span class="s1">'user'</span><span class="p">;</span>
+      <span class="nv">$pass</span><span class="o">=</span><span class="s1">'pass'</span><span class="p">;</span>
+      <span class="k">if</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'PHP_AUTH_USER'</span><span class="p">]</span><span class="o">==</span><span class="nv">$user</span> <span class="o">&amp;&amp;</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'PHP_AUTH_PW'</span><span class="p">]</span><span class="o">==</span><span class="nv">$pass</span><span class="p">){</span>
+          <span class="k">echo</span> <span class="s1">'Authorized'</span><span class="p">;</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<blockquote>
+  <p>HTTP response codes 的具体解释可以去 Mozilla 的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status">MDN 文档</a>查阅。</p>
+</blockquote>
+:ET

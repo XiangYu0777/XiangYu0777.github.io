@@ -1,0 +1,59 @@
+I"S<p>Linux 的时间分为 System Clock （系统时间）和 Real Time Clock （硬件时间，简称 RTC）。</p>
+
+<blockquote>
+  <p>系统时间：指当前 Linux Kernel 中的时间。
+硬件时间：指主板上有电池供电的时间。</p>
+</blockquote>
+
+<hr style="width: 100%;" />
+
+<ol>
+  <li><strong>查看系统时间</strong>：
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c"># date</span>
+ <span class="c"># 例：</span>
+ ➜  ~ <span class="nb">date</span>
+ <span class="c"># Output 2018年 3月 7日 星期三 12时01分15秒 CST</span>
+</code></pre></div>    </div>
+  </li>
+  <li><strong>设置系统时间</strong>：
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c"># date --set "月/日/年 时:分:秒"</span>
+ <span class="c"># 例:</span>
+ ➜  ~ <span class="nb">date</span> <span class="nt">--set</span> <span class="s2">"01/01/2049 00:00:00"</span>
+ <span class="c"># Output 2049年 1月 1日 星期五 00时00分00秒 CST</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>同步网络时间</strong></p>
+
+    <p>除了手动设置系统时间外，也可与采用和网络时间进行同步的方式。下面介绍一下不同发行版本如何与时间服务器上的时间同步的方法</p>
+    <ul>
+      <li>安装 nptdate 工具
+        <ul>
+          <li>CentOS
+            <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">sudo </span>yum <span class="nt">-y</span> <span class="nb">install </span>ntp ntpdate 
+</code></pre></div>            </div>
+          </li>
+          <li>Ubuntu
+            <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>ntp ntpdate 
+</code></pre></div>            </div>
+          </li>
+        </ul>
+      </li>
+      <li>设置系统时间与网络时间同步
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>ntpdate cn.pool.ntp.org
+</code></pre></div>        </div>
+      </li>
+      <li>将系统时间写入硬件时间
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>hwclock <span class="nt">--systohc</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<blockquote>
+  <p>注：cn.pool.ntp.org 是位于中国的公共 <a href="https://baike.baidu.com/item/NTP/1100433?fr=aladdin">NTP</a> 服务器，用来同步你的时间。
+<a href="https://www.douban.com/note/171309770/">国内常用 NTP 服务器地址及 IP</a>。</p>
+</blockquote>
+
+:ET

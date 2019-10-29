@@ -1,0 +1,70 @@
+I"�<!-- ## 工具篇 - PhpStorm 小技巧 -->
+
+<blockquote>
+  <p>PhpStorm 一直以来都是我使用频率最高的编辑器之一，她陪伴了我工作以来的一大半时光「曾今一度超过陪女友的时间」，在不断的使用和探索中你一定会爱上他。                                                                                                                           —— 余</p>
+</blockquote>
+
+<p>我目前使用的软件版本是 <strong>PhpStorm 2019.2.3 稳定版</strong>，其他版本操作可能略有不同。</p>
+
+<ul>
+  <li>
+    <p><strong>查找</strong></p>
+
+    <p>“查找”在项目的开发当中使用频率非常之高，在 PhpStrom 中你只需要简单几步即可完成。</p>
+
+    <p>A. 使用小拇指轻轻双击（Double Click）shift 键，唤起查找功能</p>
+
+    <p>B. 使用 tab 键可以切换并指定类别；目前可以支持按文件名、路径、类名、符号、方法名等方式查找，默认情况按照以上所有方式匹配查找</p>
+
+    <p>C. 最后使用回车（Enter）键完成整个检索过程</p>
+
+    <p><img src="/images/search_001.gif" alt="search_001" /></p>
+
+    <p>整个过程没有多余的脑力负担，你也可以完全摆脱鼠标的束缚。反正我自己感受起来是相当流畅的了。</p>
+
+    <p>对了，匹配结果会默认选中第一行，如果不是你想要，来回切换上下两个按键可以进行调整。此外，可以通过“驼峰”名称的首字母缩小搜索范围。</p>
+
+    <p><img src="/images/camel_tristana.jpg" alt="camel_tristana" /></p>
+  </li>
+  <li>
+    <p><strong>跳转</strong></p>
+
+    <p>在文件内部定位是，用的最多的是跳转到指定行，组合按键<code class="highlighter-rouge">ctrl/command + g</code> 即可。
+ 其次在代码追溯过程中，直接使用以下快捷键 <code class="highlighter-rouge">ctrl/command + b/(鼠标左键)</code> 跳到变量申明处。</p>
+  </li>
+  <li>
+    <p><strong>Live templates</strong></p>
+
+    <blockquote>
+      <p>By using live templates, you can insert frequently-used constructions into your code. For example, loops, conditions, various declarations, or print statements.</p>
+
+      <p>使用实时模版，你可以在你的代码里输入你经常使用的结构。比如，循环语句、条件语句、变量声明或者是打印语句。</p>
+    </blockquote>
+
+    <p>编辑器支持纯文本模版和参数模版。纯文本模版输出直接输出完整的内容，参数模版需要补充指定的变量。编辑器内置了一些基础的语法结构模版，你也可以自定义你自己的常用模版，<a href="https://www.jetbrains.com/help/phpstorm/creating-and-editing-live-templates.html">传送门</a>。</p>
+  </li>
+</ul>
+
+<p><img src="/images/live_template_plain_tristana.gif" alt="live_template_plain_tristana" /></p>
+
+<p><img src="/images/live_template_param_tristana.gif?" alt="live_template_param_tristana" /></p>
+
+<ul>
+  <li>
+    <p><strong>通过官网 php.net 查看文档</strong></p>
+
+    <p>想要在线查看 PHP 内建的符号文档，你只需要将光标放在对应的符号上然后按住 Shift+F1，它会直接在浏览器中打开 <a href="http://www.php.net/">php.net</a> 上的指定符号文档。</p>
+
+    <p><img src="/images/view_symbol_online_tristana.gif" alt="view_symbol_online_tristana" /></p>
+  </li>
+  <li>
+    <p><strong>Testing Regular Expressions</strong></p>
+
+    <p>想验证自己写的正则表达式是否正确，完全不用像往常一样，执行一边代码才能看到结果。你完全可以在编辑器中直接进行验证，将光标放在正则表达式所在位置按住 Alt + Enter 组合键，然后选择 CheckRegExp 会弹出一个对话框，你就可以进行实时验证了。</p>
+
+    <p><img src="/images/regex_tristana.gif" alt="regex_tristana" /></p>
+  </li>
+</ul>
+
+<p>以上就是我平时会用到几个小功能了，如果你们也有其他好玩又方便的小技巧欢迎欢迎留言分享哦！</p>
+:ET

@@ -1,0 +1,12 @@
+I"�<h3 id="中文解释">中文解释</h3>
+<p>“Bad Gateway” 百度翻译是错误的网关，专业解释是 Web 服务器作为网关或代理服务器时收到无效的响应。 
+<img src="http://server.zzidc.com/uploads/allimg/170520/1-1F520000330193.jpg" alt="502 Bad Gateway" /></p>
+<p style="text-align: center;font-size: 12px;">图片来源 http://server.zzidc.com/fwqcjwt/729.html</p>
+<h3 id="产生原因">产生原因</h3>
+<p>对客户端访问请求的响应超时造成的。
+客户端向服务器发送的请求数量超过了服务器的处理能力，导致服务器无法给于正常的响应。</p>
+<h3 id="解决措施">解决措施</h3>
+<ul>
+  <li><strong>客户端</strong></li>
+</ul>
+:ET

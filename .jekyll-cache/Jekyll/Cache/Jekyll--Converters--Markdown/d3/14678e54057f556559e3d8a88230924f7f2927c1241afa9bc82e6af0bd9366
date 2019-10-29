@@ -1,0 +1,48 @@
+I"�<h3 id="vuejs">Vue.js</h3>
+<p>总的来说 vue 的官方文档做的真心不错，整个文档由浅入深，循序渐进的介绍了 vue 的基本概念和框架的设计理念。过程中辅以简单的实例加深了对概念性知识点的理解，不过要构建完整的 vue 项目还需要对 Node 和 commonJS 标准有所了解，有一定的学习成本。</p>
+
+<p>Vue 的实例是整个框架的核心，依托强大的组件系统，可以轻松的操作和构建灵活的模板系统。</p>
+
+<p>服务器端渲染（ssr）配合单文件的 Vue 组件开发是目前流行的开发方式，个人觉得单纯的开发简单应用完全没必要了解太多技术点，但是大型复杂项目需要深入理解核心原理和概念。</p>
+
+<h3 id="微信小程序">微信小程序</h3>
+
+<p>按照官方开发手册和网上的小程序实例跑了一遍小程序官方 Demo，开发效率应该比较高，这里着重以下几个开发的关键点：</p>
+
+<ul>
+  <li>
+    <p>首先是要对小程序的目录结构及其各个文件的作用充分了解，这样在构建页面布局和数据交互上会比较顺手。</p>
+  </li>
+  <li>
+    <p>其次要在小程序的事件机制的原理上多下功夫，尽管每个页面大体相似，但是也有必要清楚每一个事件的具体含义及调用过程。</p>
+  </li>
+  <li>
+    <p>第三点就是小程序的组件，微信官方提供大量现成的组件示例，例如视图容器、基础内容、表单、导航等等，即规范又统一，开箱即用。</p>
+  </li>
+  <li>
+    <p>第四点就是接入第三方服务，看了下官方文档和网络教程，服务器域名添加比公众号简单一些，但是有一个硬性要求是必须为加密的 https 域名，而且 url 的形式与填写时的地址必须完整匹配，不然会被视为非法地址。</p>
+  </li>
+  <li>
+    <p>最后就是对于表单请求的发送和处理。对表单 submit, 需要额外添加 formSubmit 事件；发送请求微信统一做了区分，例如普通请求，文件上传、下载，socket 等，详情可以看微信网络 <a href="https://mp.weixin.qq.com/debug/wxadoc/dev/api/">API 列表</a>。</p>
+  </li>
+</ul>
+
+<p>在表单的发送请求方面，微信的 header 的 “Content-Type” 默认为 “application/json”, 请求 method 默认为 GET，必须为大写；而要发送 POST 请求的话，你就只能手动将 “Content-Type” 的值设置为 “application/x-www-form-urlencoded”<br />
+将提交的数据以键值对的形式发送到服务器处理。例如：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data:{ 
+    name: e.detail.value.name,
+    password: e.detail.value.password 
+}
+</code></pre></div></div>
+
+<p>在处理请求响应方面，success 后返回 data(开发者服务器返回的数据), statusCode(开发者服务器返回的状态码), header(开发者服务器返回的 HTTP Response Header)
+组成的对象, header 对象只存在于普通请求中， statusCode 只存在于 http 请求中。<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/api/network-request.html">参考</a></p>
+
+<p>除了实现层面的学习外，在使用场景上，可以找到广泛存在于衣食住行方面的实现例子:
+列如：肯德基、星巴克；车来了、共享单车；扫码开锁等。
+另一方面就是单纯的工具类应用，如：打卡签到，CRM 等。</p>
+
+<p>Vue.js 框架和微信小程序框架有着许多的相似之处，但又各具风格，但从应用范围来看，Vue.js 会更广阔一些。
+而小程序开发的意义在于微信的官方支持，既可以探索商业上的应用场景，也可以扩展自身的技术。</p>
+:ET

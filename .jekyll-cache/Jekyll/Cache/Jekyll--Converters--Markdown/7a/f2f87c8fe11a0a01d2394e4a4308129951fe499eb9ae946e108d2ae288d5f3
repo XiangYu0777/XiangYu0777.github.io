@@ -1,0 +1,11 @@
+I"@<ul>
+  <li>301 永久重定向
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cp">&lt;?php</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'HTTP/1.1 301 Moved Permanently'</span><span class="p">);</span>
+  <span class="nb">header</span><span class="p">(</span><span class="s1">'Location: http://www.example.com'</span><span class="p">);</span>
+  <span class="k">exit</span><span class="p">();</span>
+  <span class="cp">?&gt;</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+:ET

@@ -1,0 +1,67 @@
+I"�<h3 id="中文解释">中文解释</h3>
+<p>“Bad Gateway” 百度翻译是错误的网关，专业解释是 Web 服务器作为网关或代理服务器时收到无效的响应。 
+<img src="http://server.zzidc.com/uploads/allimg/170520/1-1F520000330193.jpg" alt="502 Bad Gateway" /></p>
+<p style="text-align: center;font-size: 12px;">图片来源 http://server.zzidc.com/fwqcjwt/729.html</p>
+<h3 id="产生原因">产生原因</h3>
+<p>对客户端访问请求的响应超时造成的。
+客户端向服务器发送的请求数量超过了服务器的处理能力，导致服务器无法给于正常的响应。</p>
+<h3 id="解决措施">解决措施</h3>
+<ul>
+  <li><strong>客户端</strong></li>
+</ul>
+
+<p>一般情况下稍候访问或者按下快捷键 ctrl+F5(cmd+R)强制刷新一下，重新向服务器发送请求或者清理一下电脑的缓冲文件。（如果一直都是这样，我们只能依赖服务端处理）</p>
+<ul>
+  <li><strong>服务端</strong></li>
+</ul>
+
+<ol>
+  <li>
+    <p>查看服务器当前的 PHP FastCGI 进程数是否够用</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> shell&gt;&gt;&gt; ps <span class="nt">-fe</span> | <span class="nb">grep</span> <span class="s2">"php-fpm"</span> | <span class="nb">grep</span> <span class="s2">"pool"</span> | <span class="nb">wc</span> <span class="nt">-l</span>
+</code></pre></div>    </div>
+    <p><br />
+ 如果实际使用的”FastCGI进程数”接近预设的”FastCGI进程数”，那么说明”FastCGI进程数”不够用，需要增大。
+ <br /></p>
+  </li>
+  <li>部分 PHP 程序的执行时间超过了 Nginx 的等待时间，可以在 nginx.conf 配置文件中适当增加  FastCGI 的 timeout 时间。
+    <div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.....
+<span class="n">http</span>
+{
+     ......
+     <span class="n">fastcgi_connect_timeout</span> <span class="m">300</span>;
+     <span class="n">fastcgi_send_timeout</span> <span class="m">300</span>;
+     <span class="n">fastcgi_read_timeout</span> <span class="m">300</span>;
+     ......
+}
+......
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>同样 php.ini 中 memory_limit 设低了会导致 PHP 的内存不足，也可能会出错，可以适当的增加 php.ini 中 memory_limit 的值。</p>
+  </li>
+  <li>
+    <p>提高 Web 服务器的响应速度，也即减少内部的调用关系。可以把需要的页面、素材或数据，缓存在内存中，可以是专门的缓存服务器；也可以是 Web 服务器自身的缓存，提高响应速度。</p>
+  </li>
+  <li>
+    <p>网络带宽的问题，则对传输的数据包进行压缩处理，或者向 IDC 申请增加带宽。</p>
+  </li>
+  <li>
+    <p>内部网络的故障或设置问题，也即内部网络拥塞，可能是内部存在大量的数据调用或交互造成的，则需要优化内部网络传输或协议。</p>
+  </li>
+  <li>数据库的数据读取造成前端服务器响应用户的请求变慢，那就必须提高数据库的处理能力。若是只读业务可以增加数据缓存或者增加数据库备机，分散读压力。</li>
+</ol>
+
+<h3 id="总结">总结</h3>
+<p>一般的情况下，网站打不开，出现错误代码“502 Bad Gateway”，都是 php-cgi 进程数不够用、php执行时间过长或者是 php-cgi 进程死掉导致的。遇到同样的问题，可以先从这几个方面着手。</p>
+
+<hr />
+
+<p><em>Ref</em></p>
+<blockquote>
+  <p><a href="http://server.zzidc.com/fwqcjwt/729.html">502 bad gateway什么意思，502 bad gateway怎么解决？</a></p>
+
+  <p><a href="https://www.zhihu.com/question/21647204">502 Bad Gateway 怎么解决？</a></p>
+</blockquote>
+:ET

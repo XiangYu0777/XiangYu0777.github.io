@@ -1,0 +1,82 @@
+I"B%<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+    <span class="nv">$arr</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">);</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$arr</span> <span class="k">as</span> <span class="nv">$k</span> <span class="o">=&gt;</span> <span class="nv">$v</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$v</span><span class="o">/</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$flag</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$v</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$flag</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$flag</span><span class="p">))</span> <span class="p">{</span>
+            <span class="c1">// do something </span>
+            <span class="k">echo</span> <span class="s2">"I Love PHP!</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>以上代码除了 <code class="highlighter-rouge">$arr</code> 中的值为偶数和大于 6 时会输出<code class="highlighter-rouge"> ”I Love PHP!"</code> ，其它情况也会输出，一开始，我是有点困惑的，搞了好些时间才搞明白。</p>
+
+<p>简单分析下解决的过程：这个代码片段是在最近排查系统的 bug 是看到的，流程做了些简化。代码是我本人写的😓，系统在最开始并没有出现问题，上线一段时候后，就出 bug 了。有的人可能一眼就看出来问题在哪了，但是如果你对 PHP 的变量的作用域不太了解的话，就很容易栽进这坑里。</p>
+
+<p><strong>PHP 有函数作用域，但没有像 c/c++、java 等语言的块及作用域</strong>。例如在 c++ 里：</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// 编译错误 identifier "i" is undefined</span>
+</code></pre></div></div>
+
+<p>而在 PHP 里一下几种情况变量则会一直存在：</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+    <span class="c1">// demo01: 单层循环</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">;</span>
+    <span class="p">}</span>
+	<span class="k">echo</span> <span class="nv">$i</span><span class="p">;</span> <span class="c1">// 输出 5</span>
+
+    <span class="c1">// demo02: 多层循环</span>
+	<span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nv">$j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$j</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nv">$j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$k</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">echo</span> <span class="nv">$i</span><span class="p">,</span> <span class="nv">$j</span><span class="p">,</span> <span class="nv">$k</span><span class="p">;</span> <span class="c1">// 输出 555，循环块的外部仍就可以访问这些变量</span>
+</code></pre></div></div>
+
+<p>那么如果我要保证这个变量能够在代码块中保证局部的特性怎么做呢？</p>
+
+<p>第一种方式是在每次循环的开始位置重新初始化这个变量：</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+    <span class="nv">$arr</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">);</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$arr</span> <span class="k">as</span> <span class="nv">$k</span> <span class="o">=&gt;</span> <span class="nv">$v</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$flag</span> <span class="o">=</span> <span class="nx">flase</span><span class="p">;</span> <span class="c1">// init $flag</span>
+        <span class="c1">// change $flag value ...</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>第二种方式是使用完之后直接 <code class="highlighter-rouge">unset</code> 掉：</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+    <span class="nv">$arr</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">);</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$arr</span> <span class="k">as</span> <span class="nv">$k</span> <span class="o">=&gt;</span> <span class="nv">$v</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// set $flag value ...</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$v</span><span class="o">/</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$flag</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$v</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$flag</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$flag</span><span class="p">))</span> <span class="p">{</span>
+            <span class="c1">// do something </span>
+            <span class="k">echo</span> <span class="s2">"I Love PHP!</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+            <span class="nb">unset</span><span class="p">(</span><span class="nv">$flag</span><span class="p">);</span> <span class="c1">// 直接释放这个变量</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>起初我写这段代码的时候，想当然的认为 PHP 在每次循环后都会回收并重新初始化 <code class="highlighter-rouge">$flag</code> 这个变量。然后在单元测试的时候，<code class="highlighter-rouge">$arr</code> 这个变量并没有出现条件满足和不满足数据混合的情况，最后的输出结果也符合预期。所以这里也叮嘱下大家，谁说语法不重要了，而且在做单元测试时，一定要注意代码的覆盖率，尽可能的覆盖所有会出现的情况，确保代码的正确和完备性，减少这种类型 bug 的出现。</p>
+
+<blockquote>
+  <p><a href="https://blog.csdn.net/qq_35440678/article/details/52612881">php坑系列之块级作用域</a></p>
+</blockquote>
+:ET
