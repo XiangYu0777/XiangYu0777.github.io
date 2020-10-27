@@ -6,17 +6,36 @@
     <atom:link href="https://xiangyu0777.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     <description>记录精彩的人生</description>
     <generator>Solo, v4.3.1, https://b3log.org/solo</generator>
-    <lastBuildDate>Tue, 27 Oct 2020 23:07:36 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 28 Oct 2020 00:54:04 +0800</lastBuildDate>
     <language>zh-cn</language>
+    <item>
+      <title>502 Bad Gateway 什么意思，如何解决？</title>
+      <link>https://xiangyu0777.github.io/articles/2018/06/01/1527811200204.html</link>
+      <description><![CDATA[<p>浏览器访问网站是的时候出现 "Bad Gateway" 错误是什么原因导致的？我们又该如何快速的解决呢？</p>]]></description>
+      <author>Tristana</author>
+      <guid>https://xiangyu0777.github.io/articles/2018/06/01/1527811200204.html</guid>
+      <category>PHP</category>
+      <category>服务器</category>
+      <pubDate>Wed, 28 Oct 2020 00:47:03 +0800</pubDate>
+    </item>
+    <item>
+      <title>关于我</title>
+      <link>https://xiangyu0777.github.io/articles/2020/10/27/1603813183476.html</link>
+      <description/>
+      <author>Tristana</author>
+      <guid>https://xiangyu0777.github.io/articles/2020/10/27/1603813183476.html</guid>
+      <category>我</category>
+      <pubDate>Tue, 27 Oct 2020 23:40:20 +0800</pubDate>
+    </item>
     <item>
       <title>网络时代的认知惰性</title>
       <link>https://xiangyu0777.github.io/articles/2018/05/13/1526169600165.html</link>
       <description><![CDATA[<p>网络时代的认知惰性：对互联网的依赖本身是一种成瘾。 现在走在任何一个地方，都能看到“低头族”——两眼无法从手机屏幕上挪开——这些人中有玩游戏的，有聊天的，有刷微博的，有混朋友圈的，要说这专注的劲头，的确值得欣赏。 注意力是互联网经济的一个核心要素，人们依赖网络，便捷只是原因之一，更重要的是网络上的信息能够把注意力牢牢吸引住。</p>]]></description>
       <author>Tristana</author>
       <guid>https://xiangyu0777.github.io/articles/2018/05/13/1526169600165.html</guid>
-      <category>网络</category>
-      <category>认知</category>
       <category>注意力</category>
+      <category>认知</category>
+      <category>网络</category>
       <pubDate>Tue, 27 Oct 2020 02:59:20 +0800</pubDate>
     </item>
     <item>
@@ -27,15 +46,6 @@
       <guid>https://xiangyu0777.github.io/articles/2018/06/28/1530144000251.html</guid>
       <category>PHP</category>
       <pubDate>Thu, 28 Jun 2018 08:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>502 Bad Gateway 什么意思，如何解决？</title>
-      <link>https://xiangyu0777.github.io/articles/2018/06/01/1527811200204.html</link>
-      <description><![CDATA[<p>中文解释 "Bad Gateway" 百度翻译是错误的网关，专业解释是 Web 服务器作为网关或代理服务器时收到无效的响应。  图片来源 <a href="http://server.zzidc.com/fwqcjwt/729.html" target="_blank">http://server.zzidc.com/fwqcjwt/729.html</a> ### 产生原因 对客户端访问请求的响应超时造成的。 客户端向服务器发送的请求数量超过了服务器的处理能力，导致服务器无法给于正常的响应。 ### 解决措施 * <strong>客户端</strong> 一般情况下稍候访问或者按下快捷键 ctrl+F5(cmd+R)强制刷新一下，重新向服务器发送请求或者清理一下电脑的缓冲文件。（如果一直都是这样，我们只能依赖服务端处理）  服务端    查看服务器当前的 PHP FastCGI 进程数是否够用  shell&gt;&gt;&gt; ps -fe | grep "php-fpm" | grep "pool" | wc -l   如果实际使用的"FastCGI进程数"接近预设的"FastCGI进程数"，那么说明"FastCGI进程数"不够用，需要增大。    部分 PHP 程序的执行时间超过了 Nginx 的等待时间，可以在 nginx.conf 配置....</p>]]></description>
-      <author>Tristana</author>
-      <guid>https://xiangyu0777.github.io/articles/2018/06/01/1527811200204.html</guid>
-      <category>服务器</category>
-      <pubDate>Fri, 01 Jun 2018 08:00:00 +0800</pubDate>
     </item>
     <item>
       <title>Redis Snippet</title>
@@ -92,16 +102,6 @@
       <guid>https://xiangyu0777.github.io/articles/2017/04/22/1492819200118.html</guid>
       <category>PHP</category>
       <pubDate>Sat, 22 Apr 2017 08:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>MySQL 按天、星期、按月数据统计 SQL 集合 (转)</title>
-      <link>https://xiangyu0777.github.io/articles/2017/03/15/1489536000028.html</link>
-      <description><![CDATA[<p>数据统计的需求做过多次，每次都要重新搜索，为了提高查找效率，索性做个记录。内容在原文的基础之上稍有改动。 准备工作 为了测试方便，先创建一个测试表，在插入两条数据（注：时间为 datetime` 类型，Unix 时间戳需要转换）  创建表  create table if not exists t ( id int, addTime datetime default '0000-00-00 00:00:00' );   添加两条初始数据：  insert t values(1, '2017-03-12 02:00:00'); insert t values(2, '2017-03-22 02:00:00');  开始   统计当天（当日）的数据：  常规写法（对比判断）：  SELECT count(*) FROM t WHERE DATE_FORMAT(addTime, '%Y-%m-%d') = date_format(now(),'%Y-%m-%d'));   常规写法的简化：  SELECT * FROM t WHERE addTime &gt;= date_format(NO....</p>]]></description>
-      <author>Tristana</author>
-      <guid>https://xiangyu0777.github.io/articles/2017/03/15/1489536000028.html</guid>
-      <category>数据库</category>
-      <category>MySQL</category>
-      <pubDate>Wed, 15 Mar 2017 08:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>

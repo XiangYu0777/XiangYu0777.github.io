@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>502 Bad Gateway 什么意思，如何解决？ - Tristana 的博客</title><meta name="description" content="中文解释 &quot;Bad Gateway&quot; 百度翻译是错误的网关，专业解释是 Web 服务器作为网关或代理服务器时收到无效的响应。 图片来源 http://server.zzidc.com/fwqcjwt/729.html ### 产生原因 对客户端访问请求的响应超时造成的。 客户端向服务器发送的请求数量超过了服务器的处理能力，导致服务器无法给于正常的响应。 ### 解决措施 * 客户端 一般情况下稍候访问或者按下快捷键 ctrl+F5(cmd+R)强制刷新一下，重新向服务器发送请求或者清理一下电脑的缓冲文件。（如果一直都是这样，我们只能依赖服务端处理） 服务端 查看服务器当前的 PHP FastCGI 进程数是否够用 shell&gt;&gt;&gt; ps -fe | grep &quot;php-fpm&quot; | grep &quot;pool&quot; | wc -l 如果实际使用的&quot;FastCGI进程数&quot;接近预设的&quot;FastCGI进程数&quot;，那么说明&quot;FastCGI进程数&quot;不够用，需要增大。 部分 PHP 程序的执行时间超过了 Nginx 的等待时间，可以在 nginx.conf 配置...."/><meta property="og:description" content="中文解释 &quot;Bad Gateway&quot; 百度翻译是错误的网关，专业解释是 Web 服务器作为网关或代理服务器时收到无效的响应。 图片来源 http://server.zzidc.com/fwqcjwt/729.html ### 产生原因 对客户端访问请求的响应超时造成的。 客户端向服务器发送的请求数量超过了服务器的处理能力，导致服务器无法给于正常的响应。 ### 解决措施 * 客户端 一般情况下稍候访问或者按下快捷键 ctrl+F5(cmd+R)强制刷新一下，重新向服务器发送请求或者清理一下电脑的缓冲文件。（如果一直都是这样，我们只能依赖服务端处理） 服务端 查看服务器当前的 PHP FastCGI 进程数是否够用 shell&gt;&gt;&gt; ps -fe | grep &quot;php-fpm&quot; | grep &quot;pool&quot; | wc -l 如果实际使用的&quot;FastCGI进程数&quot;接近预设的&quot;FastCGI进程数&quot;，那么说明&quot;FastCGI进程数&quot;不够用，需要增大。 部分 PHP 程序的执行时间超过了 Nginx 的等待时间，可以在 nginx.conf 配置...."/>    <meta name="keywords" content="Solo,Go,博客,开源"/><link rel="dns-prefetch" href="https://xiangyu0777.github.io"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://xiangyu0777.github.io"><link rel="icon" type="image/png" href="https://xiangyu0777.github.io/images/avatar.jpg"/><link rel="apple-touch-icon" href="https://xiangyu0777.github.io/images/avatar.jpg"><link rel="shortcut icon" type="image/x-icon" href="https://xiangyu0777.github.io/images/avatar.jpg"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="502 Bad Gateway 什么意思，如何解决？ - Tristana 的博客"/><meta property="og:site_name" content="Tristana 的博客"/><meta property="og:url"      content="https://xiangyu0777.github.io/articles/2018/06/01/1527811200204.html?"/><meta property="og:image" content="https://xiangyu0777.github.io/images/avatar.jpg"/><link rel="search" type="application/opensearchdescription+xml" title="502 Bad Gateway 什么意思，如何解决？ - Tristana 的博客" href="/opensearch.xml"><link href="https://xiangyu0777.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://xiangyu0777.github.io/manifest.json">        <link rel="canonical" href="https://xiangyu0777.github.io/articles/2018/06/01/1527811200204.html">        <link rel="stylesheet"
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>502 Bad Gateway 什么意思，如何解决？ - Tristana 的博客</title><meta name="description" content="浏览器访问网站是的时候出现 &quot;Bad Gateway&quot; 错误是什么原因导致的？我们又该如何快速的解决呢？"/><meta property="og:description" content="浏览器访问网站是的时候出现 &quot;Bad Gateway&quot; 错误是什么原因导致的？我们又该如何快速的解决呢？"/>    <meta name="keywords" content="Solo,Go,博客,开源"/><link rel="dns-prefetch" href="https://xiangyu0777.github.io"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://xiangyu0777.github.io"><link rel="icon" type="image/png" href="https://xiangyu0777.github.io/images/avatar.jpg"/><link rel="apple-touch-icon" href="https://xiangyu0777.github.io/images/avatar.jpg"><link rel="shortcut icon" type="image/x-icon" href="https://xiangyu0777.github.io/images/avatar.jpg"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="502 Bad Gateway 什么意思，如何解决？ - Tristana 的博客"/><meta property="og:site_name" content="Tristana 的博客"/><meta property="og:url"      content="https://xiangyu0777.github.io/articles/2018/06/01/1527811200204.html?"/><meta property="og:image" content="https://xiangyu0777.github.io/images/avatar.jpg"/><link rel="search" type="application/opensearchdescription+xml" title="502 Bad Gateway 什么意思，如何解决？ - Tristana 的博客" href="/opensearch.xml"><link href="https://xiangyu0777.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://xiangyu0777.github.io/manifest.json">        <link rel="canonical" href="https://xiangyu0777.github.io/articles/2018/06/01/1527811200204.html">        <link rel="stylesheet"
               href="https://xiangyu0777.github.io/skins/Jane/css/base.css?1603736637029"/>
             <link rel="prev" title="Redis Snippet" href="https://xiangyu0777.github.io/articles/2018/05/29/1527552000137.html">
             <link rel="next" title="PHP 没有块级作用域" href="https://xiangyu0777.github.io/articles/2018/06/28/1530144000251.html">
@@ -13,9 +13,11 @@
             <i class="icon__home"></i>
         </a>
 
-            <a href="/my-github-repos" target="_self"
-               class="vditor-tooltipped__w vditor-tooltipped" rel="section" aria-label="我的开源">
-                <img src="/images/github-icon.png" alt="我的开源">            </a>
+            <a href="/articles/2020/10/27/1603813183476.html" target="_blank"
+               class="vditor-tooltipped__w vditor-tooltipped" rel="section" aria-label="关于我">
+                
+                    <i class="icon__page"></i>
+            </a>
 
         <a href="https://xiangyu0777.github.io/categories.html" rel="section" aria-label="分类"
            class="vditor-tooltipped vditor-tooltipped__w">
@@ -51,12 +53,14 @@
 
         <div class="ft__gray fn__clear">
             <time>
-            2018-06-01
+            2020-10-28
             </time>
             &nbsp;
             <span class="mobile__none">
                 <a rel="tag" href="https://xiangyu0777.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8" class="ft__red">
-                    服务器</a>
+                    服务器</a>, 
+                <a rel="tag" href="https://xiangyu0777.github.io/tags/PHP" class="ft__red">
+                    PHP</a>
             </span>
             <div class="fn__right">
                 <a class="ft__red" href="https://xiangyu0777.github.io/articles/2018/06/01/1527811200204.html#b3logsolocomments"><span data-uvstatcmt="1527811200204">0</span> 评论</a>
@@ -67,66 +71,65 @@
 
         <div class="vditor-reset article__content">
             <h3 id="toc_h3_0">中文解释</h3>
-<p>"Bad Gateway" 百度翻译是错误的网关，专业解释是 Web 服务器作为网关或代理服务器时收到无效的响应。<br>
-<img src="http://server.zzidc.com/uploads/allimg/170520/1-1F520000330193.jpg" alt="502 Bad Gateway"></p>
+<p>"Bad Gateway" 百度翻译是错误的网关，专业解释是 Web 服务器作为网关或代理服务器时收到无效的响应。</p>
+<p><img src="https://b3logfile.com/file/2020/10/11F520000330193-b2a080e1.jpg?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="502 Bad Gateway"></p>
 <p style="text-align: center;font-size: 12px;">图片来源 http://server.zzidc.com/fwqcjwt/729.html</p>
-### 产生原因
-对客户端访问请求的响应超时造成的。
-客户端向服务器发送的请求数量超过了服务器的处理能力，导致服务器无法给于正常的响应。
-### 解决措施
-* **客户端**
-<p>一般情况下稍候访问或者按下快捷键 ctrl+F5(cmd+R)强制刷新一下，重新向服务器发送请求或者清理一下电脑的缓冲文件。（如果一直都是这样，我们只能依赖服务端处理）</p>
+<h3 id="toc_h3_1">产生原因</h3>
+<p>客户端向服务器发送的请求数量超过了服务器的处理能力，导致服务器无法给于正常的响应。</p>
+<h3 id="toc_h3_2">解决措施</h3>
 <ul>
-<li><strong>服务端</strong></li>
-</ul>
-<ol>
+<li><strong>客户端</strong><br>
+一般情况下我们只需等待片刻再访问或者使用快捷键 ctrl+F5（mac 用户 cmd+R） 强制刷新一下，重新向服务器发送请求或者清理一下电脑的缓冲文件。（如果还是出现同样的问题，那我们就只能依赖服务端处理了）</li>
+<li><strong>服务端</strong><br>
+服务端出现这种情况就会稍微复杂一些，可能是由多种原因导致，这就需要我们逐个进行排查了
+<ul>
 <li>
-<p>查看服务器当前的 PHP FastCGI 进程数是否够用</p>
-<pre><code class="language-shell">	shell&gt;&gt;&gt; ps -fe | grep "php-fpm" | grep "pool" | wc -l
+<p>查看服务器当前的 PHP FastCGI 进程数是否够用；</p>
+<pre><code class="language-shell">ps -fe | grep "php-fpm" | grep "pool" | wc -l
 </code></pre>
-	<br>
-	如果实际使用的"FastCGI进程数"接近预设的"FastCGI进程数"，那么说明"FastCGI进程数"不够用，需要增大。
-	<br>
+<p>如果实际使用的 "FastCGI进程数" 接近预设的 "FastCGI进程数"，那么说明 "FastCGI进程数" 不够用，需要增大；</p>
 </li>
 <li>
-<p>部分 PHP 程序的执行时间超过了 Nginx 的等待时间，可以在 nginx.conf 配置文件中适当增加  FastCGI 的 timeout 时间。</p>
-</li>
-</ol>
-<pre><code class="language-conf">.....
-http
+<p>部分 PHP 程序的执行时间超过了 Nginx 的等待时间，可以在 nginx.conf 配置文件中适当增加  FastCGI 的 timeout 时间；</p>
+<pre><code>.....
+http 
 {
-		......
-		fastcgi_connect_timeout 300;
-		fastcgi_send_timeout 300;
-		fastcgi_read_timeout 300;
-		......
+  ......
+  fastcgi_connect_timeout 300;
+  fastcgi_send_timeout 300;
+  fastcgi_read_timeout 300;
+  ......
 }
 ......
 </code></pre>
-<ol start="3">
-<li>
-<p>同样 php.ini 中 memory_limit 设低了会导致 PHP 的内存不足，也可能会出错，可以适当的增加 php.ini 中 memory_limit 的值。</p>
 </li>
 <li>
-<p>提高 Web 服务器的响应速度，也即减少内部的调用关系。可以把需要的页面、素材或数据，缓存在内存中，可以是专门的缓存服务器；也可以是 Web 服务器自身的缓存，提高响应速度。</p>
+<p>同样在 PHP 初始化配置文件 php.ini 中，配置参数 memory_limit 的值设置低了会导致 PHP 的内存不足，也可能会出错，可以适当的增加配置文件中 memory_limit 的值；</p>
 </li>
 <li>
-<p>网络带宽的问题，则对传输的数据包进行压缩处理，或者向 IDC 申请增加带宽。</p>
+<p>提高 Web 服务器的响应速度，也即减少内部的调用关系。可以把需要的页面、素材或数据缓存在内存中，可以是专门的缓存服务器；也可以是 Web 服务器自身的缓存，来提高响应速度；</p>
 </li>
 <li>
-<p>内部网络的故障或设置问题，也即内部网络拥塞，可能是内部存在大量的数据调用或交互造成的，则需要优化内部网络传输或协议。</p>
+<p>如果诊断是网络带宽的问题，那么可以对传输的数据包进行压缩处理，或者向 IDC 服务商申请增加带宽；</p>
 </li>
 <li>
-<p>数据库的数据读取造成前端服务器响应用户的请求变慢，那就必须提高数据库的处理能力。若是只读业务可以增加数据缓存或者增加数据库备机，分散读压力。</p>
+<p>内部网络的故障或设置问题，也即内部网络拥塞，可能是内部存在大量的数据调用或交互造成的，则需要优化内部网络传输或协议；</p>
 </li>
-</ol>
-<h3 id="toc_h3_1">总结</h3>
-<p>一般的情况下，网站打不开，出现错误代码“502 Bad Gateway”，都是 php-cgi 进程数不够用、php执行时间过长或者是 php-cgi 进程死掉导致的。遇到同样的问题，可以先从这几个方面着手。</p>
-<hr>
-*Ref* 
-&gt; [502 bad gateway什么意思，502 bad gateway怎么解决？](http://server.zzidc.com/fwqcjwt/729.html)
-&gt; 
-&gt; [502 Bad Gateway 怎么解决？](https://www.zhihu.com/question/21647204)
+<li>
+<p>数据库的数据读取造成前端服务器响应用户的请求变慢，那就必须提高数据库的处理能力。若是只读业务可以增加数据缓存或者增加数据库备机，分散读压力；</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="toc_h3_3">总结</h3>
+<p>综上所述，在一般的情况下，网站打不开，出现错误代码 “502 Bad Gateway”，极有可能是 php-cgi 进程数不够用、php 脚本执行时间过长或者是 php-cgi 进程死掉导致的。如果你也遇到同样的问题，可以尝试下先从这几个方面着手。</p>
+<blockquote>
+<p>引用：</p>
+<ul>
+<li><a href="http://server.zzidc.com/fwqcjwt/729.html" target="_blank">502 bad gateway什么意思，502 bad gateway怎么解决？</a></li>
+<li><a href="https://www.zhihu.com/question/21647204" target="_blank">502 Bad Gateway 怎么解决？</a></li>
+</ul>
+</blockquote>
             <div>
                 <hr>
 
@@ -161,7 +164,13 @@ http
             <a href="#toc_h3_0">中文解释</a>
         </li>
         <li class="toc__h3">
-            <a href="#toc_h3_1">总结</a>
+            <a href="#toc_h3_1">产生原因</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_2">解决措施</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_3">总结</a>
         </li>
 </ul>    
 </div>
@@ -269,4 +278,4 @@ page.tips.externalRelevantArticlesDisplayCount = "0";
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 35ms, 2020/10/27 23:07:36 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 4ms, 2020/10/28 00:54:04 -->

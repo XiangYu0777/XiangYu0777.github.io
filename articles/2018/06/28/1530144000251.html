@@ -4,6 +4,7 @@
 <meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>PHP 没有块级作用域 - Tristana 的博客</title><meta name="description" content="&lt;?php $arr = range(0, 9); foreach ($arr as $k =&gt; $v) { if ($v/2 == 0) { $flag = true; } else if ($v &gt; 6) { $flag = true; } if (isset($flag)) { // do something echo &quot;I Love PHP!\n&quot;; } } 以上代码除了 $arr 中的值为偶数和大于 6 时会输出”I Love PHP!&quot; ，其它情况也会输出，一开始，我是有点困惑的，搞了好些时间才搞明白。 简单分析下解决的过程：这个代码片段是在最近排查系统的 bug 是看到的，流程做了些简化。代码是我本人写的😓，系统在最开始并没有出现问题，上线一段时候后，就出 bug 了。有的人可能一眼就看出来问题在哪了，但是如果你对 PHP 的变量的作用域不太了解的话，就很容易栽进这坑里。 PHP 有函数作用域，但没有像 c/c++、java 等语言的块及作用域。例如在 c++ 里： for (int i = 0; i &lt; 10; i++) { cout &amp;lt...."/><meta property="og:description" content="&lt;?php $arr = range(0, 9); foreach ($arr as $k =&gt; $v) { if ($v/2 == 0) { $flag = true; } else if ($v &gt; 6) { $flag = true; } if (isset($flag)) { // do something echo &quot;I Love PHP!\n&quot;; } } 以上代码除了 $arr 中的值为偶数和大于 6 时会输出”I Love PHP!&quot; ，其它情况也会输出，一开始，我是有点困惑的，搞了好些时间才搞明白。 简单分析下解决的过程：这个代码片段是在最近排查系统的 bug 是看到的，流程做了些简化。代码是我本人写的😓，系统在最开始并没有出现问题，上线一段时候后，就出 bug 了。有的人可能一眼就看出来问题在哪了，但是如果你对 PHP 的变量的作用域不太了解的话，就很容易栽进这坑里。 PHP 有函数作用域，但没有像 c/c++、java 等语言的块及作用域。例如在 c++ 里： for (int i = 0; i &lt; 10; i++) { cout &amp;lt...."/>    <meta name="keywords" content="Solo,Go,博客,开源"/><link rel="dns-prefetch" href="https://xiangyu0777.github.io"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://xiangyu0777.github.io"><link rel="icon" type="image/png" href="https://xiangyu0777.github.io/images/avatar.jpg"/><link rel="apple-touch-icon" href="https://xiangyu0777.github.io/images/avatar.jpg"><link rel="shortcut icon" type="image/x-icon" href="https://xiangyu0777.github.io/images/avatar.jpg"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="PHP 没有块级作用域 - Tristana 的博客"/><meta property="og:site_name" content="Tristana 的博客"/><meta property="og:url"      content="https://xiangyu0777.github.io/articles/2018/06/28/1530144000251.html?"/><meta property="og:image" content="https://xiangyu0777.github.io/images/avatar.jpg"/><link rel="search" type="application/opensearchdescription+xml" title="PHP 没有块级作用域 - Tristana 的博客" href="/opensearch.xml"><link href="https://xiangyu0777.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://xiangyu0777.github.io/manifest.json">        <link rel="canonical" href="https://xiangyu0777.github.io/articles/2018/06/28/1530144000251.html">        <link rel="stylesheet"
               href="https://xiangyu0777.github.io/skins/Jane/css/base.css?1603736637029"/>
             <link rel="prev" title="502 Bad Gateway 什么意思，如何解决？" href="https://xiangyu0777.github.io/articles/2018/06/01/1527811200204.html">
+            <link rel="next" title="关于我" href="https://xiangyu0777.github.io/articles/2020/10/27/1603813183476.html">
     <script src="https://cdn.jsdelivr.net/npm/vditor@3.5.3/dist/js/icons/ant.js" async="" id="vditorIconScript"></script></head>
 <body>
 <header class="header">
@@ -12,9 +13,11 @@
             <i class="icon__home"></i>
         </a>
 
-            <a href="/my-github-repos" target="_self"
-               class="vditor-tooltipped__w vditor-tooltipped" rel="section" aria-label="我的开源">
-                <img src="/images/github-icon.png" alt="我的开源">            </a>
+            <a href="/articles/2020/10/27/1603813183476.html" target="_blank"
+               class="vditor-tooltipped__w vditor-tooltipped" rel="section" aria-label="关于我">
+                
+                    <i class="icon__page"></i>
+            </a>
 
         <a href="https://xiangyu0777.github.io/categories.html" rel="section" aria-label="分类"
            class="vditor-tooltipped vditor-tooltipped__w">
@@ -146,7 +149,11 @@ cout &lt;&lt; i &lt;&lt; endl; // 编译错误 identifier "i" is undefined
         </div>
 
         <div class="article__near article__near--point fn__flex">
-                <a class="fn__flex-1 first">&nbsp;</a>
+                <a href="https://xiangyu0777.github.io/articles/2020/10/27/1603813183476.html" rel="next"
+                   class="fn__flex-1 first">
+                    <strong>NEWER</strong>
+                    新一篇
+                </a>
                 <a href="https://xiangyu0777.github.io/articles/2018/06/01/1527811200204.html" rel="prev" class="fn__flex-1">
                     <strong>OLDER</strong>
                     502 Bad Gateway 什么意思，如何解决？
@@ -264,4 +271,4 @@ page.tips.externalRelevantArticlesDisplayCount = "0";
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 25ms, 2020/10/27 23:07:36 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 3ms, 2020/10/28 00:54:04 -->
