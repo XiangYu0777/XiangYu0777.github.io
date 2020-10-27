@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Vue.js和微信小程序学习心得总结 - Tristana 的博客</title><meta name="description" content="Vue.js 总的来说 vue 的官方文档做的真心不错，整个文档由浅入深，循序渐进的介绍了 vue 的基本概念和框架的设计理念。过程中辅以简单的实例加深了对概念性知识点的理解，不过要构建完整的 vue 项目还需要对 Node 和 commonJS 标准有所了解，有一定的学习成本。 Vue 的实例是整个框架的核心，依托强大的组件系统，可以轻松的操作和构建灵活的模板系统。 服务器端渲染（ssr）配合单文件的 Vue 组件开发是目前流行的开发方式，个人觉得单纯的开发简单应用完全没必要了解太多技术点，但是大型复杂项目需要深入理解核心原理和概念。 微信小程序 按照官方开发手册和网上的小程序实例跑了一遍小程序官方 Demo，开发效率应该比较高，这里着重以下几个开发的关键点： 首先是要对小程序的目录结构及其各个文件的作用充分了解，这样在构建页面布局和数据交互上会比较顺手。 其次要在小程序的事件机制的原理上多下功夫，尽管每个页面大体相似，但是也有必要清楚每一个事件的具体含义及调用过程。 第三点就是小程序的组件，微信官方提供大量现成的组件示例，例如视图容器、基础内容、表单、导航等等，即规范又...."/><meta property="og:description" content="Vue.js 总的来说 vue 的官方文档做的真心不错，整个文档由浅入深，循序渐进的介绍了 vue 的基本概念和框架的设计理念。过程中辅以简单的实例加深了对概念性知识点的理解，不过要构建完整的 vue 项目还需要对 Node 和 commonJS 标准有所了解，有一定的学习成本。 Vue 的实例是整个框架的核心，依托强大的组件系统，可以轻松的操作和构建灵活的模板系统。 服务器端渲染（ssr）配合单文件的 Vue 组件开发是目前流行的开发方式，个人觉得单纯的开发简单应用完全没必要了解太多技术点，但是大型复杂项目需要深入理解核心原理和概念。 微信小程序 按照官方开发手册和网上的小程序实例跑了一遍小程序官方 Demo，开发效率应该比较高，这里着重以下几个开发的关键点： 首先是要对小程序的目录结构及其各个文件的作用充分了解，这样在构建页面布局和数据交互上会比较顺手。 其次要在小程序的事件机制的原理上多下功夫，尽管每个页面大体相似，但是也有必要清楚每一个事件的具体含义及调用过程。 第三点就是小程序的组件，微信官方提供大量现成的组件示例，例如视图容器、基础内容、表单、导航等等，即规范又...."/>    <meta name="keywords" content="Solo,Go,博客,开源"/><link rel="dns-prefetch" href="https://xiangyu0777.github.io"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://xiangyu0777.github.io"><link rel="icon" type="image/png" href="https://xiangyu0777.github.io/images/avatar.jpg"/><link rel="apple-touch-icon" href="https://xiangyu0777.github.io/images/avatar.jpg"><link rel="shortcut icon" type="image/x-icon" href="https://xiangyu0777.github.io/images/avatar.jpg"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Vue.js和微信小程序学习心得总结 - Tristana 的博客"/><meta property="og:site_name" content="Tristana 的博客"/><meta property="og:url"      content="https://xiangyu0777.github.io/articles/2017/11/08/1510099200180.html?"/><meta property="og:image" content="https://xiangyu0777.github.io/images/avatar.jpg"/><link rel="search" type="application/opensearchdescription+xml" title="Vue.js和微信小程序学习心得总结 - Tristana 的博客" href="/opensearch.xml"><link href="https://xiangyu0777.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://xiangyu0777.github.io/manifest.json">        <link rel="canonical" href="https://xiangyu0777.github.io/articles/2017/11/08/1510099200180.html">        <link rel="stylesheet"
+              href="https://xiangyu0777.github.io/skins/Jane/css/base.css?1603736637029"/>
+            <link rel="prev" title="PHP 函数 header() 的用法归纳" href="https://xiangyu0777.github.io/articles/2017/04/22/1492819200118.html">
+            <link rel="next" title="从多任务到专注思考：如何让生活化繁为简？" href="https://xiangyu0777.github.io/articles/2018/03/06/1520294400095.html">
+    <script src="https://cdn.jsdelivr.net/npm/vditor@3.5.3/dist/js/icons/ant.js" async="" id="vditorIconScript"></script></head>
+<body>
+<header class="header">
+    <div class="fn__flex-1">
+        <a href="https://xiangyu0777.github.io" rel="start" class="vditor-tooltipped__w vditor-tooltipped" aria-label="Tristana 的博客">
+            <i class="icon__home"></i>
+        </a>
+
+            <a href="/my-github-repos" target="_self"
+               class="vditor-tooltipped__w vditor-tooltipped" rel="section" aria-label="我的开源">
+                <img src="/images/github-icon.png" alt="我的开源">            </a>
+
+        <a href="https://xiangyu0777.github.io/categories.html" rel="section" aria-label="分类"
+           class="vditor-tooltipped vditor-tooltipped__w">
+            <i class="icon__category"></i>
+        </a>
+        <a href="https://xiangyu0777.github.io/tags.html" rel="section" aria-label="标签墙"
+           class="vditor-tooltipped vditor-tooltipped__w">
+            <i class="icon__tags"></i>
+        </a>
+        <a href="https://xiangyu0777.github.io/archives.html" aria-label="存档"
+           class="vditor-tooltipped vditor-tooltipped__w">
+            <i class="icon__inbox"></i>
+        </a>
+        <a rel="archive" href="https://xiangyu0777.github.io/links.html" aria-label="友链"
+           class="vditor-tooltipped vditor-tooltipped__w">
+            <i class="icon__link"></i>
+        </a>
+        <a rel="alternate" href="https://xiangyu0777.github.io/rss.xml" rel="section" aria-label="RSS"
+           class="vditor-tooltipped vditor-tooltipped__w">
+            <i class="icon__rss"></i>
+        </a>
+    </div>
+
+</header>
+<div id="pjax" class="wrapper">
+    
+    <div class="article__item">
+        <h2 class="article__title">
+            <a rel="bookmark" href="https://xiangyu0777.github.io/articles/2017/11/08/1510099200180.html">
+            Vue.js和微信小程序学习心得总结
+            </a>
+        </h2>
+
+        <div class="ft__gray fn__clear">
+            <time>
+            2017-11-08
+            </time>
+            &nbsp;
+            <span class="mobile__none">
+                <a rel="tag" href="https://xiangyu0777.github.io/tags/%E6%8A%80%E6%9C%AF" class="ft__red">
+                    技术</a>, 
+                <a rel="tag" href="https://xiangyu0777.github.io/tags/%E8%AF%AD%E8%A8%80" class="ft__red">
+                    语言</a>
+            </span>
+            <div class="fn__right">
+                <a class="ft__red" href="https://xiangyu0777.github.io/articles/2017/11/08/1510099200180.html#b3logsolocomments"><span data-uvstatcmt="1510099200180">0</span> 评论</a>
+                •
+                <span data-uvstaturl="https://xiangyu0777.github.io/articles/2017/11/08/1510099200180.html">0</span> 浏览
+            </div>
+        </div>
+
+        <div class="vditor-reset article__content">
+            <h3 id="toc_h3_0">Vue.js</h3>
+<p>总的来说 vue 的官方文档做的真心不错，整个文档由浅入深，循序渐进的介绍了 vue 的基本概念和框架的设计理念。过程中辅以简单的实例加深了对概念性知识点的理解，不过要构建完整的 vue 项目还需要对 Node 和 commonJS 标准有所了解，有一定的学习成本。</p>
+<p>Vue 的实例是整个框架的核心，依托强大的组件系统，可以轻松的操作和构建灵活的模板系统。</p>
+<p>服务器端渲染（ssr）配合单文件的 Vue 组件开发是目前流行的开发方式，个人觉得单纯的开发简单应用完全没必要了解太多技术点，但是大型复杂项目需要深入理解核心原理和概念。</p>
+<h3 id="toc_h3_1">微信小程序</h3>
+<p>按照官方开发手册和网上的小程序实例跑了一遍小程序官方 Demo，开发效率应该比较高，这里着重以下几个开发的关键点：</p>
+<ul>
+<li>
+<p>首先是要对小程序的目录结构及其各个文件的作用充分了解，这样在构建页面布局和数据交互上会比较顺手。</p>
+</li>
+<li>
+<p>其次要在小程序的事件机制的原理上多下功夫，尽管每个页面大体相似，但是也有必要清楚每一个事件的具体含义及调用过程。</p>
+</li>
+<li>
+<p>第三点就是小程序的组件，微信官方提供大量现成的组件示例，例如视图容器、基础内容、表单、导航等等，即规范又统一，开箱即用。</p>
+</li>
+<li>
+<p>第四点就是接入第三方服务，看了下官方文档和网络教程，服务器域名添加比公众号简单一些，但是有一个硬性要求是必须为加密的 https 域名，而且 url 的形式与填写时的地址必须完整匹配，不然会被视为非法地址。</p>
+</li>
+<li>
+<p>最后就是对于表单请求的发送和处理。对表单 submit, 需要额外添加 formSubmit 事件；发送请求微信统一做了区分，例如普通请求，文件上传、下载，socket 等，详情可以看微信网络 <a href="https://mp.weixin.qq.com/debug/wxadoc/dev/api/" target="_blank">API 列表</a>。</p>
+</li>
+</ul>
+<p>在表单的发送请求方面，微信的 header 的 "Content-Type" 默认为 "application/json", 请求 method 默认为 GET，必须为大写；而要发送 POST 请求的话，你就只能手动将 "Content-Type" 的值设置为 "application/x-www-form-urlencoded"<br>
+将提交的数据以键值对的形式发送到服务器处理。例如：</p>
+<pre><code>data:{ 
+    name: e.detail.value.name,
+    password: e.detail.value.password 
+}
+</code></pre>
+<p>在处理请求响应方面，success 后返回 data(开发者服务器返回的数据), statusCode(开发者服务器返回的状态码), header(开发者服务器返回的 HTTP Response Header)<br>
+组成的对象, header 对象只存在于普通请求中， statusCode 只存在于 http 请求中。<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/api/network-request.html" target="_blank">参考</a></p>
+<p>除了实现层面的学习外，在使用场景上，可以找到广泛存在于衣食住行方面的实现例子:<br>
+列如：肯德基、星巴克；车来了、共享单车；扫码开锁等。<br>
+另一方面就是单纯的工具类应用，如：打卡签到，CRM 等。</p>
+<p>Vue.js 框架和微信小程序框架有着许多的相似之处，但又各具风格，但从应用范围来看，Vue.js 会更广阔一些。<br>
+而小程序开发的意义在于微信的官方支持，既可以探索商业上的应用场景，也可以扩展自身的技术。</p>
+            <div>
+                <hr>
+
+标题：Vue.js和微信小程序学习心得总结<br>
+作者：<a href="https://xiangyu0777.github.io" target="_blank">Tristana</a><br>
+地址：<a href="https://xiangyu0777.github.io/articles/2017/11/08/1510099200180.html" target="_blank">https://xiangyu0777.github.io/articles/2017/11/08/1510099200180.html</a><br>
+
+<!-- 签名档内可使用 HTML、JavaScript -->
+<br>
+            </div>
+        </div>
+
+        <div class="article__near article__near--point fn__flex">
+                <a href="https://xiangyu0777.github.io/articles/2018/03/06/1520294400095.html" rel="next"
+                   class="fn__flex-1 first">
+                    <strong>NEWER</strong>
+                    新一篇
+                </a>
+                <a href="https://xiangyu0777.github.io/articles/2017/04/22/1492819200118.html" rel="prev" class="fn__flex-1">
+                    <strong>OLDER</strong>
+                    PHP 函数 header() 的用法归纳
+                </a>
+        </div>
+    </div>
+        <div id="gitalk-container"></div>
+        <div id="b3logsolocomments"></div>
+        <div id="vcomment" data-name="Tristana" data-postId="1510099200180"></div>
+        <div id="relevantArticles" class="article__near"></div>
+        <div id="randomArticles" class="article__near"></div>
+<ul class="article__toc">
+        <li class="toc__h3">
+            <a href="#toc_h3_0">Vue.js</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_1">微信小程序</a>
+        </li>
+</ul>    
+</div>
+<footer class="footer wrapper fn__clear">
+    <div class="ft__center user__sites">
+    <a href="https://ld246.com/member/Tristana"
+       aria-label="https://ld246.com/member/Tristana"
+       class="vditor-tooltipped__n vditor-tooltipped  user__site"
+       target="_blank" rel="noopener nofollow">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path fill="#d23f31" style="fill: var(--color1, #d23f31)" d="M5.787 17.226h17.033l5.954 9.528c0.47 0.752 0.003 1.361-1.042 1.361h-15.141z"></path>
+            <path d="M10.74 3.927h17.033c1.045 0 1.512 0.609 1.042 1.361l-5.954 9.528h-19.872l6.379-10.209c0.235-0.376 0.849-0.681 1.372-0.681z"></path>
+            <path d="M2.953 17.226h2.839l6.804 10.889h-1.892c-0.523 0-1.137-0.305-1.372-0.681z"></path>
+        </svg>
+    </a>
+
+        <a href="https://github.com/XiangYu0777"
+           aria-label="https://github.com/XiangYu0777"
+           class="vditor-tooltipped__n vditor-tooltipped  user__site"
+           target="_blank" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M16 0.331c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+            </svg>
+        </a>
+
+        <a href="https://twitter.com/tristana1004"
+           aria-label="https://twitter.com/tristana1004"
+           target="_blank"
+           class="vditor-tooltipped__n vditor-tooltipped  user__site" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M32.003 6.075c-1.175 0.525-2.444 0.875-3.769 1.031 1.356-0.813 2.394-2.1 2.887-3.631-1.269 0.75-2.675 1.3-4.169 1.594-1.2-1.275-2.906-2.069-4.794-2.069-3.625 0-6.563 2.938-6.563 6.563 0 0.512 0.056 1.012 0.169 1.494-5.456-0.275-10.294-2.888-13.531-6.862-0.563 0.969-0.887 2.1-0.887 3.3 0 2.275 1.156 4.287 2.919 5.463-1.075-0.031-2.087-0.331-2.975-0.819 0 0.025 0 0.056 0 0.081 0 3.181 2.263 5.838 5.269 6.437-0.55 0.15-1.131 0.231-1.731 0.231-0.425 0-0.831-0.044-1.237-0.119 0.838 2.606 3.263 4.506 6.131 4.563-2.25 1.762-5.075 2.813-8.156 2.813-0.531 0-1.050-0.031-1.569-0.094 2.913 1.869 6.362 2.95 10.069 2.95 12.075 0 18.681-10.006 18.681-18.681 0-0.287-0.006-0.569-0.019-0.85 1.281-0.919 2.394-2.075 3.275-3.394z"></path>
+            </svg>
+        </a>
+    </div>
+    &copy; 2020
+    <a href="https://xiangyu0777.github.io">Tristana 的博客</a>
+    
+    <div class="fn__none"></div>
+</footer>
+<div class="icon-up" onclick="Util.goTop()"></div>
+
+<script>
+  var Label = {
+    speech: true,
+    servePath: "https://xiangyu0777.github.io",
+    staticServePath: "https://xiangyu0777.github.io",
+    luteAvailable: false,
+    hljsStyle: 'github',
+    langLabel: "zh_CN",
+    version: "4.3.1",
+    staticSite: true,
+    showCodeBlockLn: false,
+    articleId: "1510099200180",
+  }
+</script>
+<script type="text/javascript" src="https://xiangyu0777.github.io/skins/Jane/js/common.min.js?1603736637029" charset="utf-8"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.10/index.css"/>
+<script async src="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.10/index.js"></script>
+<div class="solo-kanbanniang">
+    <div class="solo-kanbanniang__tip"></div>
+    <canvas id="soloKanbanniang" width="280" height="250"></canvas>
+    <div class="solo-kanbanniang__tool">
+        <svg id="soloKanbanniangHome" viewBox="0 0 32 32" width="100%" height="100%">
+            <path d="M32 18.967l-16-12.42-16 12.42v-5.064l16-12.42 16 12.42zM28 18.516v12h-8v-8h-8v8h-8v-12l12-9z"></path>
+        </svg>
+        <svg id="soloKanbanniangRSS" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M320.364 768q0 45.728-32 77.728t-77.728 32-77.728-32-32-77.728 32-77.728 77.728-32 77.728 32 32 77.728zM612.94 838.272q1.152 16-9.728 27.424-10.272 12-26.848 12h-77.152q-14.272 0-24.576-9.44t-11.424-23.712q-12.576-130.848-105.44-223.712t-223.712-105.44q-14.272-1.152-23.712-11.424t-9.44-24.576V402.24q0-16.576 12-26.848 9.728-9.728 24.576-9.728h2.848q91.424 7.424 174.848 46.016t148 103.712q65.152 64.576 103.712 148t46.016 174.848z m292.576 1.152q1.152 15.424-10.272 26.848-10.272 11.424-26.272 11.424h-81.728q-14.848 0-25.44-10.016t-11.136-24.288q-6.848-122.848-57.728-233.44t-132.288-192-192-132.288-233.44-58.272q-14.272-0.576-24.288-11.136t-10.016-24.864V109.664q0-16 11.424-26.272 10.272-10.272 25.152-10.272h1.728q149.728 7.424 286.56 68.576t243.136 168q106.848 106.272 168 243.136t68.576 286.56z"></path>
+        </svg>
+        <svg id="soloKanbanniangChat" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M802.42709 96.163153H219.476155c-84.48109 0-154.896836 71.746044-154.896836 157.840888v393.119449c0 86.072331 70.415746 157.819398 154.896836 157.819399h214.038818V925.470963s22.526039 40.168862 64.767096 5.734608c30.965246-25.819039 126.721123-91.828428 171.775248-123.385145h132.369773c84.502579 0 154.896836-83.21526 154.896836-157.839865V251.125481c0-86.094844-70.394257-154.962328-154.896836-154.962328zM301.144176 518.002714c-39.427988 0-70.416769-31.576159-70.416769-71.746044 0-40.168862 30.988782-71.746044 70.416769-71.746044 39.426965 0 70.393233 31.577183 70.393234 71.746044 0 40.169885-30.966269 71.746044-70.393234 71.746044z m208.411657 0c-39.450501 0-70.415746-31.576159-70.415746-71.746044 0-40.168862 30.965246-71.746044 70.415746-71.746044 39.405475 0 70.394257 31.577183 70.394257 71.746044 0 40.169885-30.988782 71.746044-70.394257 71.746044z m211.203236 0c-39.426965 0-70.416769-31.576159-70.416769-71.746044 0-40.168862 30.988782-71.746044 70.416769-71.746044s70.415746 31.577183 70.415746 71.746044c-0.001023 40.169885-30.988782 71.746044-70.415746 71.746044z"></path>
+        </svg>
+        <svg id="soloKanbanniangChange" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M936.672 193.216l-226.88-64c-8.704-2.528-18.112-1.12-25.824 3.776-7.68 4.864-12.896 12.736-14.432 21.728C655.712 236.928 595.328 288 512 288c-71.424 0-142.464-103.296-163.776-143.104-7.136-13.28-22.528-19.84-37.024-15.68l-224 64C73.472 197.152 64 209.728 64 224v256a31.93 31.93 0 0 0 11.712 24.736c7.392 6.08 17.152 8.512 26.56 6.624L224 487.04V832c0 52.928 43.072 96 96 96h384c52.928 0 96-43.072 96-96V519.04l121.728 24.352c9.44 1.92 19.2-0.544 26.56-6.624C955.68 530.656 960 521.6 960 512V224c0-14.336-9.536-26.912-23.328-30.784zM672 800H352c-17.664 0-32-14.304-32-32s14.336-32 32-32h320c17.696 0 32 14.304 32 32s-14.304 32-32 32z"></path>
+        </svg>
+        <svg id="soloKanbanniangPhoto" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M898.048 258.048q23.552-1.024 46.592 9.216t40.96 27.136 28.672 39.424 10.752 46.08l0 390.144q0 24.576-10.752 47.104t-28.672 40.448-40.96 28.16-47.616 10.24l-697.344 0q-24.576 0-48.64-10.24t-42.496-27.648-29.696-40.448-11.264-48.64l0-381.952q0-22.528 10.752-45.568t28.672-41.472 39.936-30.208 44.544-11.776l63.488 0 13.312-83.968q3.072-20.48 18.432-32.768t34.816-12.288l456.704 0q19.456 0 34.304 10.752t16.896 34.304l14.336 83.968 54.272 0zM548.864 712.704q40.96 0 77.824-15.872t63.488-42.496 42.496-62.976 15.872-77.312-15.872-77.312-42.496-62.976-63.488-42.496-77.824-15.872-77.312 15.872-63.488 42.496-43.008 62.976-15.872 77.312 15.872 77.312 43.008 62.976 63.488 42.496 77.312 15.872z"></path>
+        </svg>
+        <svg id="soloKanbanniangGithub" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M1024 524.8c0 114.346667-32.554667 217.216-97.706667 308.565333-65.066667 91.306667-149.162667 154.538667-252.288 189.610667-11.989333 2.304-20.778667 0.682667-26.325333-4.778667a27.605333 27.605333 0 0 1-8.362667-20.48v-144.213333c0-44.16-11.52-76.501333-34.645333-97.024 25.344-2.730667 48.085333-6.826667 68.309333-12.288a268.629333 268.629333 0 0 0 62.72-26.666667 187.434667 187.434667 0 0 0 53.973334-45.44c14.421333-18.005333 26.197333-41.898667 35.328-71.765333 9.088-29.824 13.653333-64.128 13.653333-102.826667 0-55.125333-17.536-102.058667-52.650667-140.8 16.426667-41.429333 14.677333-87.893333-5.333333-139.392-12.458667-4.096-30.464-1.578667-54.016 7.509334a355.328 355.328 0 0 0-61.312 30.08L640 271.274667a462.336 462.336 0 0 0-128-17.749334c-43.989333 0-86.656 5.930667-128 17.749334a589.824 589.824 0 0 0-28.330667-18.432c-11.776-7.253333-30.336-16.042667-55.68-26.325334-25.344-10.24-44.416-13.312-57.301333-9.216-19.584 51.498667-21.12 97.962667-4.693333 139.434667-35.114667 38.698667-52.650667 85.632-52.650667 140.757333 0 38.698667 4.565333 72.874667 13.653333 102.485334 9.130667 29.610667 20.778667 53.546667 34.986667 71.765333 14.250667 18.218667 32.128 33.493333 53.674667 45.781333 21.546667 12.288 42.453333 21.205333 62.677333 26.666667 20.224 5.461333 43.008 9.557333 68.309333 12.288-17.749333 16.384-28.629333 39.850667-32.64 70.4a130.005333 130.005333 0 0 1-29.994666 10.24c-10.666667 2.261333-23.338667 3.413333-37.973334 3.413333-14.72 0-29.269333-4.906667-43.690666-14.677333-14.464-9.813333-26.794667-24.064-36.992-42.709333a109.226667 109.226667 0 0 0-32.341334-35.541334c-13.141333-9.130667-24.106667-14.592-33.024-16.426666l-13.312-2.048c-9.344 0-15.786667 1.024-19.328 3.072-3.584 2.090667-4.693333 4.693333-3.328 7.893333 1.28 3.157333 3.328 6.4 5.973334 9.557333 2.688 3.2 5.546667 5.930667 8.661333 8.192l4.693333 3.413334c9.770667 4.565333 19.413333 13.226667 29.013334 25.984 9.514667 12.757333 16.512 24.362667 20.992 34.858666l6.656 15.701334c5.76 17.322667 15.530667 31.317333 29.312 42.026666 13.781333 10.666667 28.672 17.536 44.672 20.48 16 2.986667 31.445333 4.565333 46.336 4.821334 14.890667 0.213333 27.221333-0.597333 36.992-2.389334l15.36-2.730666c0 17.28 0.085333 37.546667 0.298666 60.8l0.341334 36.906666a27.050667 27.050667 0 0 1-8.661334 20.48c-5.76 5.461333-14.677333 7.082667-26.666666 4.778667-103.125333-35.072-187.221333-98.261333-252.330667-189.610667C32.554667 742.058667 0 639.146667 0 524.8c0-95.232 22.869333-183.04 68.693333-263.466667A516.266667 516.266667 0 0 1 254.976 70.4C333.44 23.466667 419.114667 0 512 0c92.885333 0 178.56 23.466667 256.981333 70.4a516.266667 516.266667 0 0 1 186.368 190.976C1001.130667 341.802667 1024 429.653333 1024 524.842667z"></path>
+        </svg>
+        <svg id="soloKanbanniangClose" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M517.572566143763 1018.6748601482986C238.26554897656422 1018.6748601482986 11.897910175114305 792.2714997690043 11.897910175114305 513.0002041796496c0-279.3070171671984 226.36763880144977-505.71037754649296 505.6746559686481-505.71037754649296 279.2712955893538 0 505.6746559686481 226.40336037929444 505.6746559686481 505.71037754649296C1023.2472221124112 792.2714997690043 796.8795833109612 1018.6748601482986 517.572566143763 1018.6748601482986zM754.7281214542927 339.25044954334646c13.752807470184345-13.752807470184345 9.680547595895998-40.186775075214015-9.073280772537204-58.94060344364717l-2.143294670678079-2.1075730928334457c-18.7538283684332-18.7538283684332-45.15207439561819-22.861809820566194-58.90488186580257-9.073280772537204l-168.21291007038468 168.24863164822932-180.42968969324974-180.46541127109438c-13.967136937252159-13.967136937252159-40.72259874288353-9.823433907274534-59.72647815622916 9.216167083915742l-2.143294670678079 2.143294670678079c-19.039600991190277 19.003879413345654-23.111860865478626 45.75934121897699-9.180445506071107 59.655035000539876l180.42968969324974 180.46541127109438-176.07165719620428 176.03593561835962c-13.788529048028984 13.824250625873615-9.716269173740633 40.151053497369375 9.073280772537204 58.94060344364717l2.1075730928334457 2.1075730928334457c18.7538283684332 18.7538283684332 45.15207439561819 22.897531398410823 58.90488186580257 9.073280772537204l176.10737877404887-176.10737877404887 170.39192631890742 170.42764789675192c13.967136937252159 13.931415359407513 40.686877165038865 9.85915548511917 59.690756578384516-9.180445506071107l2.1790162485227142-2.1790162485227142c19.039600991190277-18.968157835501014 23.147582443323273-45.72361964113239 9.180445506071107-59.690756578384516l-170.39192631890742-170.42764789675192L754.7281214542927 339.25044954334646z"></path>
+        </svg>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    Util.addScript('https://xiangyu0777.github.io/js/page.min.js?1603736637029', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论不能为空",
+        "oId": "1510099200180",
+        "blogHost": "https://xiangyu0777.github.io",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+page.tips.externalRelevantArticlesDisplayCount = "0";
+    page.loadRandomArticles();
+    page.loadRelevantArticles('1510099200180', '<h4>相关阅读：</h4>');
+    });
+</script>
+
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 31ms, 2020/10/27 23:07:36 -->
